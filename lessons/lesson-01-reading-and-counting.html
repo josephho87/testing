@@ -1,0 +1,855 @@
+<title>爵士鼓入門手冊</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    --ink:#211D17;
+    --ink-soft:#5B5142;
+    --paper:#ECE5D3;
+    --panel:#F8F4E8;
+    --panel-border:rgba(33,29,23,0.14);
+    --brass:#A5751F;
+    --brass-strong:#8C6119;
+    --teal:#2E5954;
+    --snare:#8F3434;
+    --line:rgba(33,29,23,0.18);
+    --shadow:rgba(33,29,23,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#ECE3CE;
+      --ink-soft:#B9AD92;
+      --paper:#17130E;
+      --panel:#221C15;
+      --panel-border:rgba(236,227,206,0.14);
+      --brass:#D8A752;
+      --brass-strong:#E7BC72;
+      --teal:#5EA096;
+      --snare:#C36760;
+      --line:rgba(236,227,206,0.16);
+      --shadow:rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#ECE3CE;
+    --ink-soft:#B9AD92;
+    --paper:#17130E;
+    --panel:#221C15;
+    --panel-border:rgba(236,227,206,0.14);
+    --brass:#D8A752;
+    --brass-strong:#E7BC72;
+    --teal:#5EA096;
+    --snare:#C36760;
+    --line:rgba(236,227,206,0.16);
+    --shadow:rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', -apple-system, 'PingFang TC', 'Noto Sans TC', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:780px;
+    margin:0 auto;
+    padding:56px 24px 96px;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', 'Noto Serif TC', serif;
+    font-weight:600;
+    text-wrap:balance;
+    color:var(--ink);
+    margin:0;
+  }
+  p{ margin:0; line-height:1.75; color:var(--ink); }
+  .muted{ color:var(--ink-soft); }
+  .mono{ font-family:'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric:tabular-nums; }
+
+  /* ---------- header ---------- */
+  header.masthead{
+    padding-bottom:36px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:44px;
+  }
+  .eyebrow-top{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-size:clamp(28px, 4.4vw, 40px);
+    line-height:1.25;
+    letter-spacing:-0.01em;
+  }
+  .lede{
+    margin-top:14px;
+    font-size:17px;
+    color:var(--ink-soft);
+    max-width:58ch;
+    line-height:1.75;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:24px;
+  }
+  .meta-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink);
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:999px;
+    padding:6px 14px;
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- sections ---------- */
+  section.lesson-section{
+    margin-top:56px;
+  }
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:18px;
+  }
+  .sec-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    font-weight:600;
+    color:var(--brass);
+    flex:none;
+  }
+  .sec-title{
+    font-size:22px;
+    flex:1;
+  }
+  .sec-title .en{
+    font-family:'Public Sans', sans-serif;
+    font-weight:500;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:block;
+    margin-top:2px;
+    letter-spacing:0.02em;
+  }
+  .sec-rule{
+    height:1px;
+    background:linear-gradient(to right, var(--teal), transparent 65%);
+    margin-bottom:22px;
+  }
+  .sec-body > * + *{ margin-top:16px; }
+
+  /* ---------- lists ---------- */
+  ul.check{ list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  ul.check li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    line-height:1.65;
+  }
+  ul.check li::before{
+    content:"";
+    flex:none;
+    width:9px; height:9px;
+    margin-top:7px;
+    background:var(--brass);
+    border-radius:2px;
+    transform:rotate(45deg);
+  }
+
+  ol.steps{ margin:0; padding:0; list-style:none; display:grid; gap:14px; }
+  ol.steps li{
+    display:grid;
+    grid-template-columns:28px 1fr;
+    gap:12px;
+    line-height:1.65;
+  }
+  ol.steps li .stepnum{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal);
+    border:1px solid var(--line);
+    border-radius:50%;
+    width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- panel / figure ---------- */
+  .panel{
+    background:var(--panel);
+    border:1px solid var(--panel-border);
+    border-radius:10px;
+    padding:22px 22px 18px;
+    box-shadow:0 1px 2px var(--shadow);
+  }
+  figure{ margin:0; }
+  figure svg{ display:block; width:100%; height:auto; overflow-x:visible; }
+  .figure-scroll{ overflow-x:auto; }
+  figcaption{
+    margin-top:14px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .diagram-label{ font-size:12px; fill:currentColor; font-family:'Public Sans', sans-serif; }
+  .diagram-num{ font-size:12px; font-weight:700; fill:var(--paper); font-family:'IBM Plex Mono', monospace; }
+
+  /* legend under kit diagram */
+  .legend-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:8px 22px;
+    margin-top:16px;
+    font-size:14px;
+  }
+  .legend-grid dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    color:var(--brass-strong);
+    display:inline-block;
+    width:20px;
+  }
+  .legend-grid .row{ display:flex; gap:8px; align-items:baseline; }
+  .legend-grid .name{ font-weight:600; }
+  .legend-grid .en{ color:var(--ink-soft); font-size:12.5px; }
+
+  /* note-value diagram text classes (svg) */
+  .rowlabel{ font-size:14px; font-weight:600; fill:currentColor; font-family:'Public Sans','Noto Sans TC',sans-serif;}
+  .rowsub{ font-size:11.5px; fill:var(--ink-soft); font-family:'Public Sans',sans-serif;}
+  .rowcount{ font-size:12.5px; fill:var(--ink-soft); font-family:'IBM Plex Mono',monospace;}
+  .cell{ fill:var(--paper); stroke:var(--teal); stroke-width:1.4; }
+  .beatline{ stroke:var(--line); stroke-width:1; }
+  .syll{ font-size:12px; fill:var(--brass-strong); font-family:'IBM Plex Mono',monospace; font-weight:600;}
+
+  /* ---------- 4/4 explainer ---------- */
+  .beat-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:4px; }
+  .beat-cell{
+    border:1.4px solid var(--teal);
+    border-radius:8px;
+    padding:16px 8px 12px;
+    text-align:center;
+    background:var(--paper);
+  }
+  .beat-cell.down{
+    background:var(--brass);
+    border-color:var(--brass);
+  }
+  .beat-cell .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:22px;
+    font-weight:600;
+    color:var(--ink);
+  }
+  .beat-cell.down .num{ color:var(--panel); }
+  .beat-cell .tag{
+    display:block;
+    margin-top:4px;
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+  }
+  .beat-cell.down .tag{ color:var(--panel); opacity:0.85; }
+
+  /* ---------- tables ---------- */
+  .table-wrap{ overflow-x:auto; }
+  table.spec{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  table.spec th{
+    text-align:left;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border-bottom:1.4px solid var(--teal);
+    padding:0 10px 8px 0;
+    font-weight:600;
+  }
+  table.spec td{
+    padding:11px 10px 11px 0;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.spec tr:last-child td{ border-bottom:none; }
+  table.spec td.term{ font-weight:600; white-space:nowrap; }
+  table.spec td .en{ display:block; color:var(--ink-soft); font-size:12px; font-weight:400; margin-top:1px;}
+
+  /* ---------- glossary ---------- */
+  .glossary{ display:grid; gap:18px; }
+  .gterm{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    gap:16px;
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .gterm:last-child{ border-bottom:none; padding-bottom:0; }
+  .gterm .head{ line-height:1.4; }
+  .gterm .zh{ font-weight:700; font-size:15px; }
+  .gterm .en{ display:block; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal); margin-top:3px; }
+  .gterm .def{ font-size:14.5px; line-height:1.7; color:var(--ink); }
+
+  /* ---------- exercises ---------- */
+  .exercise{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:14px;
+    align-items:start;
+  }
+  .exercise + .exercise{ margin-top:18px; padding-top:18px; border-top:1px solid var(--line); }
+  .ex-badge{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;
+    font-size:13px;
+    color:var(--snare);
+    border:1px solid currentColor;
+    border-radius:6px;
+    padding:3px 9px;
+  }
+  .ex-title{ font-weight:600; margin-bottom:4px; }
+  .ex-detail{ font-size:14.5px; color:var(--ink-soft); line-height:1.7; }
+  .ex-detail .mono{ color:var(--ink); }
+
+  /* ---------- footer note ---------- */
+  .callout{
+    border-left:3px solid var(--brass);
+    padding:4px 0 4px 18px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    line-height:1.75;
+  }
+
+  footer.end{
+    margin-top:64px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  @media (max-width:560px){
+    .gterm{ grid-template-columns:1fr; gap:4px; }
+    .legend-grid{ grid-template-columns:1fr; }
+    .beat-row{ gap:6px; }
+  }
+</style>
+
+<div class="page" lang="zh-Hant">
+
+  <header class="masthead">
+    <span class="eyebrow-top">爵士鼓 · 初學者教案</span>
+    <h1 class="title">第一堂課：讀譜・數拍・認識鼓組</h1>
+    <p class="lede">新學生的入門課，從零開始建立看譜、數拍與辨認鼓組的基礎，之後每一堂課都會用到這裡的詞彙與觀念。</p>
+    <div class="meta-row">
+      <span class="meta-chip">建議時長　45–60 分鐘</span>
+      <span class="meta-chip">程度　完全初學者</span>
+      <span class="meta-chip">教具　節拍器・雙鼓棒・譜架</span>
+      <span class="meta-chip">拍號　4/4</span>
+    </div>
+  </header>
+
+  <!-- 00 教學目標 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">00</span>
+      <h2 class="sec-title">教學目標<span class="en">Lesson objectives</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <ul class="check">
+        <li>能說出爵士鼓套主要部位的中英文名稱與功能</li>
+        <li>理解拍號 4/4 的意義，並能穩定地大聲數拍</li>
+        <li>認識常見音符與休止符的拍值，知道一小節如何被填滿</li>
+        <li>看懂簡化版鼓譜上，不同位置代表哪一件樂器</li>
+        <li>熟悉今天教過的關鍵字，方便日後上課溝通</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 01 認識爵士鼓套 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">認識爵士鼓套<span class="en">Drum kit anatomy</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <p>下圖是坐在鼓椅上、由上往下看的鼓組配置。先請學生實際坐上鼓椅，依序摸過一遍每一件樂器，邊摸邊唸出名稱。</p>
+
+      <div class="panel figure-scroll">
+        <figure>
+          <svg viewBox="0 0 640 480" role="img" aria-label="爵士鼓套由上往下的配置圖，標示出腳踏鈸、小鼓、大鼓、中鼓、落地鼓、強音鈸與節奏鈸的相對位置" style="min-width:420px">
+            <!-- stool -->
+            <circle cx="320" cy="440" r="18" fill="none" stroke="currentColor" stroke-width="1.4" opacity="0.55"/>
+            <text x="320" y="444" text-anchor="middle" class="diagram-label" opacity="0.65">你</text>
+
+            <!-- connecting guide from stool -->
+            <line x1="320" y1="422" x2="320" y2="405" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+
+            <!-- Hi-Hat (1) -->
+            <circle cx="168" cy="378" r="30" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="168" cy="378" r="19" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+            <rect x="160" y="404" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+            <circle cx="168" cy="378" r="13" fill="var(--brass)"/>
+            <text x="168" y="382" text-anchor="middle" class="diagram-num">1</text>
+
+            <!-- Snare (2) -->
+            <circle cx="300" cy="372" r="34" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="300" cy="372" r="13" fill="var(--brass)"/>
+            <text x="300" y="376" text-anchor="middle" class="diagram-num">2</text>
+
+            <!-- Floor Tom (6) -->
+            <circle cx="470" cy="360" r="42" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="470" cy="360" r="13" fill="var(--brass)"/>
+            <text x="470" y="364" text-anchor="middle" class="diagram-num">6</text>
+
+            <!-- Bass/Kick (3) -->
+            <circle cx="330" cy="262" r="58" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="330" cy="262" r="13" fill="var(--brass)"/>
+            <text x="330" y="266" text-anchor="middle" class="diagram-num">3</text>
+
+            <!-- Rack Tom High (4) -->
+            <circle cx="278" cy="216" r="25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="278" cy="216" r="12" fill="var(--brass)"/>
+            <text x="278" y="220" text-anchor="middle" class="diagram-num" font-size="11">4</text>
+
+            <!-- Rack Tom Mid (5) -->
+            <circle cx="368" cy="212" r="28" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="368" cy="212" r="12" fill="var(--brass)"/>
+            <text x="368" y="216" text-anchor="middle" class="diagram-num" font-size="11">5</text>
+
+            <!-- Crash (7) -->
+            <circle cx="140" cy="232" r="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3" opacity="0.85"/>
+            <circle cx="140" cy="232" r="13" fill="var(--brass)"/>
+            <text x="140" y="236" text-anchor="middle" class="diagram-num">7</text>
+
+            <!-- Ride (8) -->
+            <circle cx="500" cy="222" r="38" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 3" opacity="0.85"/>
+            <circle cx="500" cy="222" r="13" fill="var(--brass)"/>
+            <text x="500" y="226" text-anchor="middle" class="diagram-num">8</text>
+
+            <!-- stand lines (simple) -->
+            <line x1="168" y1="408" x2="168" y2="440" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+            <line x1="140" y1="264" x2="140" y2="300" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+            <line x1="500" y1="260" x2="500" y2="296" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+          </svg>
+          <figcaption>鼓組由上往下的相對位置（虛線圈為鈸類，實線圈為鼓類）。數字對照下方名稱表。今天先熟悉 1、2、3 三件樂器即可。</figcaption>
+        </figure>
+      </div>
+
+      <dl class="legend-grid">
+        <div class="row"><dt>1</dt><div><span class="name">腳踏鈸（Hi-Hat）</span><span class="en"> 左腳踩開合，右手或左手打擊</span></div></div>
+        <div class="row"><dt>2</dt><div><span class="name">小鼓（Snare Drum）</span><span class="en"> 主奏鼓，聲音清脆</span></div></div>
+        <div class="row"><dt>3</dt><div><span class="name">大鼓（Bass / Kick Drum）</span><span class="en"> 右腳踩踏板</span></div></div>
+        <div class="row"><dt>4</dt><div><span class="name">中鼓・高音（High Tom）</span><span class="en"> 掛在大鼓上方</span></div></div>
+        <div class="row"><dt>5</dt><div><span class="name">中鼓・中音（Mid Tom）</span><span class="en"> 掛在大鼓上方</span></div></div>
+        <div class="row"><dt>6</dt><div><span class="name">落地鼓（Floor Tom）</span><span class="en"> 有三支腳，音較低</span></div></div>
+        <div class="row"><dt>7</dt><div><span class="name">強音鈸（Crash Cymbal）</span><span class="en"> 重音、樂句結尾用</span></div></div>
+        <div class="row"><dt>8</dt><div><span class="name">節奏鈸（Ride Cymbal）</span><span class="en"> 持續打節奏用</span></div></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 02 如何看譜 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">如何看譜：鼓譜基礎<span class="en">Reading drum notation</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <p>鼓譜也畫在五條線的譜表上，但線與間不代表音高，而是代表「打哪一件樂器」。音符符頭是圓點代表鼓類，打叉（✕）代表鈸類。不同教材的位置安排可能略有差異，這是一種常見版本：</p>
+
+      <div class="panel figure-scroll">
+        <figure>
+          <svg viewBox="0 0 640 240" role="img" aria-label="鼓譜五線譜位置對照圖：腳踏鈸在譜表上方以叉號表示、小鼓在譜表中線、大鼓在譜表下方，另外標示強音鈸、中鼓與落地鼓的參考位置" style="min-width:480px">
+            <!-- staff lines -->
+            <g stroke="currentColor" stroke-width="1.2" opacity="0.75">
+              <line x1="60" y1="80" x2="560" y2="80"/>
+              <line x1="60" y1="104" x2="560" y2="104"/>
+              <line x1="60" y1="128" x2="560" y2="128"/>
+              <line x1="60" y1="152" x2="560" y2="152"/>
+              <line x1="60" y1="176" x2="560" y2="176"/>
+            </g>
+
+            <!-- Crash: ledger above, y=56 (secondary) -->
+            <g opacity="0.55">
+              <line x1="284" y1="56" x2="316" y2="56" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="292" y1="49" x2="308" y2="63" stroke="currentColor" stroke-width="2"/>
+              <line x1="308" y1="49" x2="292" y2="63" stroke="currentColor" stroke-width="2"/>
+              <line x1="330" y1="59" x2="350" y2="59" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="63" class="diagram-label">強音鈸　Crash</text>
+            </g>
+
+            <!-- Hi-Hat: space1 y=92 (primary) -->
+            <g>
+              <line x1="292" y1="85" x2="308" y2="99" stroke="var(--brass-strong)" stroke-width="2.6"/>
+              <line x1="308" y1="85" x2="292" y2="99" stroke="var(--brass-strong)" stroke-width="2.6"/>
+              <line x1="330" y1="92" x2="350" y2="92" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="96" class="diagram-label" font-weight="700" fill="var(--brass-strong)">腳踏鈸　Hi-Hat（今天重點）</text>
+            </g>
+
+            <!-- Tom High: line2 y=104 (secondary) -->
+            <g opacity="0.55">
+              <ellipse cx="300" cy="104" rx="9" ry="7" fill="currentColor"/>
+              <line x1="330" y1="104" x2="350" y2="104" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="108" class="diagram-label">高音中鼓　High Tom</text>
+            </g>
+
+            <!-- Tom Mid: space2 y=116 (secondary) -->
+            <g opacity="0.55">
+              <ellipse cx="300" cy="116" rx="9" ry="7" fill="currentColor"/>
+              <line x1="330" y1="116" x2="350" y2="116" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="120" class="diagram-label">中音中鼓　Mid Tom</text>
+            </g>
+
+            <!-- Snare: line3 y=128 (primary) -->
+            <g>
+              <ellipse cx="300" cy="128" rx="10" ry="7.5" fill="var(--brass-strong)"/>
+              <line x1="330" y1="128" x2="350" y2="128" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="132" class="diagram-label" font-weight="700" fill="var(--brass-strong)">小鼓　Snare（今天重點）</text>
+            </g>
+
+            <!-- Floor tom: line4 y=152 (secondary) -->
+            <g opacity="0.55">
+              <ellipse cx="300" cy="152" rx="9" ry="7" fill="currentColor"/>
+              <line x1="330" y1="152" x2="350" y2="152" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="156" class="diagram-label">落地鼓　Floor Tom</text>
+            </g>
+
+            <!-- Kick: ledger below y=200 (primary) -->
+            <g>
+              <line x1="284" y1="200" x2="316" y2="200" stroke="currentColor" stroke-width="1.2"/>
+              <ellipse cx="300" cy="200" rx="10" ry="7.5" fill="var(--brass-strong)"/>
+              <line x1="330" y1="200" x2="350" y2="200" stroke="currentColor" stroke-width="1"/>
+              <text x="356" y="204" class="diagram-label" font-weight="700" fill="var(--brass-strong)">大鼓　Kick（今天重點）</text>
+            </g>
+          </svg>
+          <figcaption>✕ 符頭＝鈸類（腳踏鈸／強音鈸），● 符頭＝鼓類（小鼓／中鼓／大鼓）。位置愈高，樂器通常愈靠近打擊者的上方或愈高音。今天只需認得腳踏鈸、小鼓、大鼓三個標示重點的位置。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 拍號 4/4 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">拍號 4/4 與數拍<span class="en">Time signature &amp; counting</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <p><span class="mono" style="font-size:20px;font-weight:600;">4/4</span> 是最常見的拍號，寫在譜表最前面。上面的數字和下面的數字，各自回答一個問題：</p>
+
+      <div class="table-wrap">
+        <table class="spec">
+          <thead><tr><th style="width:70px">位置</th><th>意義</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="term">上面的 4</td>
+              <td>每一小節（一個循環單位）裡有 <strong>4 拍</strong>。</td>
+            </tr>
+            <tr>
+              <td class="term">下面的 4</td>
+              <td>以 <strong>四分音符</strong> 當作「一拍」的單位。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>請學生跟著節拍器（先設定 60–70 BPM），大聲數「1、2、3、4」，數完立刻回到 1，反覆循環。第 1 拍通常是整句最重的一拍，稱為「重拍」：</p>
+
+      <div class="panel">
+        <div class="beat-row">
+          <div class="beat-cell down"><span class="num">1</span><span class="tag">重拍</span></div>
+          <div class="beat-cell"><span class="num">2</span><span class="tag">&nbsp;</span></div>
+          <div class="beat-cell"><span class="num">3</span><span class="tag">&nbsp;</span></div>
+          <div class="beat-cell"><span class="num">4</span><span class="tag">&nbsp;</span></div>
+        </div>
+      </div>
+
+      <p class="muted" style="font-size:14px;">小提醒：一小節結束後立刻接下一小節的「1」，中間不停頓——這就是「穩定的拍子」。</p>
+    </div>
+  </section>
+
+  <!-- 04 認識不同音符 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">認識不同音符<span class="en">Note values in one measure</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <p>音符的「長短」，其實是在講「一小節（4 拍）要被切成幾份」。下圖用同樣寬度的一小節，示範切成 1 份、2 份、4 份、8 份、16 份分別對應哪個音符：</p>
+
+      <div class="panel figure-scroll">
+        <figure>
+          <svg viewBox="0 0 804 334" role="img" aria-label="同一個4/4小節分別以全音符、二分音符、四分音符、八分音符、十六分音符切分的比較圖，顯示音符數量與拍值的對應關係" style="min-width:620px">
+            <g class="beatline">
+              <line x1="190.0" y1="24" x2="190.0" y2="318" />
+              <line x1="326.0" y1="24" x2="326.0" y2="318" />
+              <line x1="462.0" y1="24" x2="462.0" y2="318" />
+              <line x1="598.0" y1="24" x2="598.0" y2="318" />
+              <line x1="734.0" y1="24" x2="734.0" y2="318" />
+            </g>
+
+            <rect x="190.0" y="41.0" width="541.0" height="32" rx="4" class="cell" />
+            <text x="176" y="62.0" text-anchor="end" class="rowlabel">全音符</text>
+            <text x="176" y="77.0" text-anchor="end" class="rowsub">= 4拍</text>
+            <text x="748" y="62.0" text-anchor="start" class="rowcount">×1</text>
+
+            <rect x="190.0" y="99.0" width="269.0" height="32" rx="4" class="cell" />
+            <rect x="462.0" y="99.0" width="269.0" height="32" rx="4" class="cell" />
+            <text x="176" y="120.0" text-anchor="end" class="rowlabel">二分音符</text>
+            <text x="176" y="135.0" text-anchor="end" class="rowsub">= 每個 2 拍</text>
+            <text x="748" y="120.0" text-anchor="start" class="rowcount">×2</text>
+
+            <rect x="190.0" y="157.0" width="133.0" height="32" rx="4" class="cell" />
+            <rect x="326.0" y="157.0" width="133.0" height="32" rx="4" class="cell" />
+            <rect x="462.0" y="157.0" width="133.0" height="32" rx="4" class="cell" />
+            <rect x="598.0" y="157.0" width="133.0" height="32" rx="4" class="cell" />
+            <text x="176" y="178.0" text-anchor="end" class="rowlabel">四分音符</text>
+            <text x="176" y="193.0" text-anchor="end" class="rowsub">= 每個 1 拍</text>
+            <text x="748" y="178.0" text-anchor="start" class="rowcount">×4</text>
+            <text x="256.5" y="203.0" text-anchor="middle" class="syll">1</text>
+            <text x="392.5" y="203.0" text-anchor="middle" class="syll">2</text>
+            <text x="528.5" y="203.0" text-anchor="middle" class="syll">3</text>
+            <text x="664.5" y="203.0" text-anchor="middle" class="syll">4</text>
+
+            <rect x="190.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="258.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="326.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="394.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="462.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="530.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="598.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <rect x="666.0" y="215.0" width="65.0" height="32" rx="4" class="cell" />
+            <text x="176" y="236.0" text-anchor="end" class="rowlabel">八分音符</text>
+            <text x="176" y="251.0" text-anchor="end" class="rowsub">= 每個 半拍</text>
+            <text x="748" y="236.0" text-anchor="start" class="rowcount">×8</text>
+            <text x="222.5" y="261.0" text-anchor="middle" class="syll">1</text>
+            <text x="290.5" y="261.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="358.5" y="261.0" text-anchor="middle" class="syll">2</text>
+            <text x="426.5" y="261.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="494.5" y="261.0" text-anchor="middle" class="syll">3</text>
+            <text x="562.5" y="261.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="630.5" y="261.0" text-anchor="middle" class="syll">4</text>
+            <text x="698.5" y="261.0" text-anchor="middle" class="syll">&amp;</text>
+
+            <rect x="190.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="224.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="258.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="292.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="326.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="360.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="394.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="428.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="462.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="496.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="530.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="564.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="598.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="632.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="666.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <rect x="700.0" y="273.0" width="31.0" height="32" rx="4" class="cell" />
+            <text x="176" y="294.0" text-anchor="end" class="rowlabel">十六分音符</text>
+            <text x="176" y="309.0" text-anchor="end" class="rowsub">= 每個 1/4 拍</text>
+            <text x="748" y="294.0" text-anchor="start" class="rowcount">×16</text>
+            <text x="205.5" y="319.0" text-anchor="middle" class="syll">1</text>
+            <text x="239.5" y="319.0" text-anchor="middle" class="syll">e</text>
+            <text x="273.5" y="319.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="307.5" y="319.0" text-anchor="middle" class="syll">a</text>
+            <text x="341.5" y="319.0" text-anchor="middle" class="syll">2</text>
+            <text x="375.5" y="319.0" text-anchor="middle" class="syll">e</text>
+            <text x="409.5" y="319.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="443.5" y="319.0" text-anchor="middle" class="syll">a</text>
+            <text x="477.5" y="319.0" text-anchor="middle" class="syll">3</text>
+            <text x="511.5" y="319.0" text-anchor="middle" class="syll">e</text>
+            <text x="545.5" y="319.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="579.5" y="319.0" text-anchor="middle" class="syll">a</text>
+            <text x="613.5" y="319.0" text-anchor="middle" class="syll">4</text>
+            <text x="647.5" y="319.0" text-anchor="middle" class="syll">e</text>
+            <text x="681.5" y="319.0" text-anchor="middle" class="syll">&amp;</text>
+            <text x="715.5" y="319.0" text-anchor="middle" class="syll">a</text>
+          </svg>
+          <figcaption>五種切法都填滿「同一個 4 拍小節」，方塊愈多、每個音符就愈短。金色文字是嘴巴要念出的拍點——先練會四分音符與八分音符即可，十六分音符留到之後幾堂課。</figcaption>
+        </figure>
+      </div>
+
+      <div class="table-wrap">
+        <table class="spec">
+          <thead><tr><th style="width:56px">符號</th><th>名稱</th><th>拍值</th><th>休止符</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><svg viewBox="0 0 26 34" width="22" height="28" role="img" aria-label="全音符符號"><ellipse cx="13" cy="24" rx="8" ry="5.5" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></td>
+              <td class="term">全音符<span class="en">Whole note</span></td><td>4 拍</td><td>全休止符（整小節不打）</td>
+            </tr>
+            <tr>
+              <td><svg viewBox="0 0 26 34" width="22" height="28" role="img" aria-label="二分音符符號"><ellipse cx="11" cy="26" rx="7.5" ry="5.2" fill="none" stroke="currentColor" stroke-width="2.4"/><line x1="18" y1="26" x2="18" y2="4" stroke="currentColor" stroke-width="2.2"/></svg></td>
+              <td class="term">二分音符<span class="en">Half note</span></td><td>2 拍</td><td>二分休止符</td>
+            </tr>
+            <tr>
+              <td><svg viewBox="0 0 26 34" width="22" height="28" role="img" aria-label="四分音符符號"><ellipse cx="11" cy="26" rx="7.5" ry="5.2" fill="currentColor"/><line x1="18" y1="26" x2="18" y2="4" stroke="currentColor" stroke-width="2.2"/></svg></td>
+              <td class="term">四分音符<span class="en">Quarter note</span></td><td>1 拍</td><td>四分休止符</td>
+            </tr>
+            <tr>
+              <td><svg viewBox="0 0 26 34" width="22" height="28" role="img" aria-label="八分音符符號"><ellipse cx="11" cy="26" rx="7.5" ry="5.2" fill="currentColor"/><line x1="18" y1="26" x2="18" y2="4" stroke="currentColor" stroke-width="2.2"/><path d="M18 4 C 24 7, 24 13, 18 15" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></td>
+              <td class="term">八分音符<span class="en">Eighth note</span></td><td>半拍</td><td>八分休止符</td>
+            </tr>
+            <tr>
+              <td><svg viewBox="0 0 26 34" width="22" height="28" role="img" aria-label="十六分音符符號"><ellipse cx="11" cy="26" rx="7.5" ry="5.2" fill="currentColor"/><line x1="18" y1="26" x2="18" y2="4" stroke="currentColor" stroke-width="2.2"/><path d="M18 4 C 24 7, 24 12, 18 14" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M18 10 C 24 13, 24 18, 18 20" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></td>
+              <td class="term">十六分音符<span class="en">16th note</span></td><td>1/4 拍</td><td>十六分休止符</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="font-size:13.5px;">休止符＝「這拍不打、但拍子照樣繼續走」，數拍時嘴巴仍要念出來，只是手不動。</p>
+    </div>
+  </section>
+
+  <!-- 05 常見關鍵字 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">常見關鍵字<span class="en">Glossary</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <div class="glossary">
+        <div class="gterm">
+          <div class="head"><span class="zh">速度</span><span class="en">Tempo</span></div>
+          <div class="def">音樂進行的快慢，用 BPM（每分鐘拍數）表示，數字愈大愈快。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">每分鐘拍數</span><span class="en">BPM</span></div>
+          <div class="def">Beats Per Minute。節拍器上設定的數字，例如 60 BPM 代表每秒打一拍。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">節拍器</span><span class="en">Metronome</span></div>
+          <div class="def">維持穩定速度的工具，初學者練習時務必打開，養成「跟拍」的耳朵。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">小節</span><span class="en">Measure / Bar</span></div>
+          <div class="def">拍子的計數單位，4/4 拍中每小節有 4 拍，小節結束會回到第 1 拍重新數。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">律動・鼓點</span><span class="en">Groove</span></div>
+          <div class="def">反覆演奏、支撐整首歌曲的基本節奏型態，通常由腳踏鈸、小鼓、大鼓組合而成。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">過門</span><span class="en">Fill</span></div>
+          <div class="def">樂句之間用來銜接、加花的一段即興節奏，通常出現在段落交接處。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">棒法</span><span class="en">Sticking</span></div>
+          <div class="def">左右手（R / L）敲擊的先後順序安排，之後練習譜上會用 R、L 標示。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">重拍・反拍</span><span class="en">Downbeat / Upbeat</span></div>
+          <div class="def">「重拍」是每一拍開始的瞬間（1、2、3、4）；「反拍」是拍與拍中間的「&amp;」位置。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">預備拍</span><span class="en">Count-in</span></div>
+          <div class="def">開始演奏前，用口數或棒聲數出的幾拍（例如「1、2、3、4」），讓所有人同步進入。</div>
+        </div>
+        <div class="gterm">
+          <div class="head"><span class="zh">力度記號</span><span class="en">Dynamics</span></div>
+          <div class="def">標示打擊力度的強弱，常見的有 <span class="mono">p</span>（piano，弱）與 <span class="mono">f</span>（forte，強）。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 課堂練習 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">課堂練習<span class="en">In-class exercises</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <div class="panel">
+        <div class="exercise">
+          <span class="ex-badge">A</span>
+          <div>
+            <div class="ex-title">靜態數拍</div>
+            <div class="ex-detail">節拍器設定 <span class="mono">60 BPM</span>，不碰鼓，大聲念「<span class="mono">1、2、3、4</span>」，連續 8 小節不中斷。</div>
+          </div>
+        </div>
+        <div class="exercise">
+          <span class="ex-badge">B</span>
+          <div>
+            <div class="ex-title">拍手感受四分音符</div>
+            <div class="ex-detail">每念一拍、雙手拍一下，念與拍手同時發生，體會「四分音符＝一拍」。</div>
+          </div>
+        </div>
+        <div class="exercise">
+          <span class="ex-badge">C</span>
+          <div>
+            <div class="ex-title">加入八分音符</div>
+            <div class="ex-detail">念「<span class="mono">1 &amp; 2 &amp; 3 &amp; 4 &amp;</span>」，在每個數字與「&amp;」都拍手，感受「八分音符＝均分成兩半」。</div>
+          </div>
+        </div>
+        <div class="exercise">
+          <span class="ex-badge">D</span>
+          <div>
+            <div class="ex-title">單手打腳踏鈸</div>
+            <div class="ex-detail">坐上鼓椅，右手在 Hi-Hat 上，跟著節拍器打出穩定的四分音符（每拍一下），嘴巴同步數拍。</div>
+          </div>
+        </div>
+        <div class="exercise">
+          <span class="ex-badge">E</span>
+          <div>
+            <div class="ex-title">加入大鼓</div>
+            <div class="ex-detail">保持右手 Hi-Hat 的四分音符，右腳在第 1、3 拍踩大鼓——這是第一個「手腳配合」的小任務。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 回家作業 -->
+  <section class="lesson-section">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">回家作業<span class="en">Homework</span></h2>
+    </div>
+    <div class="sec-rule"></div>
+    <div class="sec-body">
+      <ol class="steps">
+        <li><span class="stepnum">1</span><span>下載一個節拍器 App，每天花 5 分鐘練習跟拍數「1、2、3、4」，速度可以先從 60 BPM 開始。</span></li>
+        <li><span class="stepnum">2</span><span>複習鼓組各部位名稱，練到不看講義也能說出至少 6 個名稱（中文或英文皆可）。</span></li>
+        <li><span class="stepnum">3</span><span>挑一首自己喜歡的歌，試著跟著數「1、2、3、4」，找出第 1 拍（重拍）落在哪裡。</span></li>
+      </ol>
+
+      <div class="callout">
+        下堂課預告：把今天的 Hi-Hat 四分音符與大鼓、小鼓組合起來，打出第一個完整的律動（Groove）。
+      </div>
+    </div>
+  </section>
+
+  <footer class="end">
+    <span>爵士鼓初學者教案　Lesson 01 / 讀譜與數拍基礎</span>
+    <span>教師備課用</span>
+  </footer>
+
+</div>
