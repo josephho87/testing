@@ -534,9 +534,11 @@
 
       <p class="muted" style="font-size:14px;">先看規則 1（位置對照），再看規則 2 的實際範例。</p>
 
+      <p class="muted" style="font-size:14px;">每一件樂器都畫在譜表某兩條線「中間的格子」裡，音符不會壓在線上——這樣不管線多細，都能清楚看出音符落在哪一格：</p>
+
       <div class="panel figure-scroll">
         <figure>
-          <svg viewBox="0 0 660 296" role="img" aria-label="標準鼓譜位置對照圖：由左到右依序為大鼓、落地鼓、小鼓、中音中鼓、高音中鼓、腳踏鈸、節奏鈸、強音鈸，音符在譜表上的位置隨音高由下往上排列，大鼓、小鼓、腳踏鈸以金色標示為今天的學習重點" style="min-width:560px">
+          <svg viewBox="0 0 660 296" role="img" aria-label="標準鼓譜位置對照圖：由左到右依序為大鼓、落地鼓、小鼓、中音中鼓、高音中鼓、腳踏鈸、節奏鈸、強音鈸，每個音符都畫在譜表兩條線中間的格子裡，位置隨音高由下往上排列，大鼓、小鼓、腳踏鈸以金色格子標示為今天的學習重點" style="min-width:560px">
             <!-- staff lines -->
             <g stroke="currentColor" stroke-width="1.2" opacity="0.7">
               <line x1="46" y1="90" x2="614" y2="90"/>
@@ -546,78 +548,84 @@
               <line x1="46" y1="178" x2="614" y2="178"/>
             </g>
 
-            <!-- 1 Kick — below staff, ledger, PRIMARY -->
+            <!-- 1 Kick — space just below staff, PRIMARY -->
             <g>
-              <line x1="83" y1="200" x2="107" y2="200" stroke="var(--brass-strong)" stroke-width="1.4"/>
-              <ellipse cx="95" cy="200" rx="9.5" ry="7.5" fill="var(--brass-strong)"/>
-              <line x1="104" y1="196" x2="104" y2="176" stroke="var(--brass-strong)" stroke-width="1.8"/>
+              <line x1="78" y1="200" x2="112" y2="200" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+              <rect x="78" y="180" width="34" height="18" rx="4" fill="var(--brass-strong)" fill-opacity="0.16" stroke="var(--brass-strong)" stroke-width="1.4"/>
+              <ellipse cx="95" cy="189" rx="8" ry="6.5" fill="var(--brass-strong)"/>
               <text x="95" y="228" text-anchor="middle" class="klabel primary">大鼓</text>
               <text x="95" y="243" text-anchor="middle" class="klabel-en primary">Kick</text>
             </g>
 
-            <!-- 2 Floor Tom — line4, secondary -->
-            <g opacity="0.55">
-              <ellipse cx="165" cy="156" rx="9.5" ry="7.5" fill="currentColor"/>
-              <line x1="174" y1="152" x2="174" y2="132" stroke="currentColor" stroke-width="1.6"/>
+            <!-- 2 Floor Tom — space between line4/line5, secondary -->
+            <g>
+              <rect x="148" y="158" width="34" height="18" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+              <ellipse cx="165" cy="167" rx="8" ry="6.5" fill="currentColor" opacity="0.55"/>
               <text x="165" y="228" text-anchor="middle" class="klabel">落地鼓</text>
               <text x="165" y="243" text-anchor="middle" class="klabel-en">Floor Tom</text>
             </g>
 
-            <!-- 3 Snare — line3 (middle line), PRIMARY -->
+            <!-- 3 Snare — space between line3/line4, PRIMARY -->
             <g>
-              <ellipse cx="235" cy="134" rx="9.5" ry="7.5" fill="var(--brass-strong)"/>
-              <line x1="244" y1="130" x2="244" y2="110" stroke="var(--brass-strong)" stroke-width="1.8"/>
+              <rect x="218" y="136" width="34" height="18" rx="4" fill="var(--brass-strong)" fill-opacity="0.16" stroke="var(--brass-strong)" stroke-width="1.4"/>
+              <ellipse cx="235" cy="145" rx="8" ry="6.5" fill="var(--brass-strong)"/>
               <text x="235" y="228" text-anchor="middle" class="klabel primary">小鼓</text>
               <text x="235" y="243" text-anchor="middle" class="klabel-en primary">Snare</text>
             </g>
 
-            <!-- 4 Mid Tom — space2, secondary -->
-            <g opacity="0.55">
-              <ellipse cx="305" cy="123" rx="9.5" ry="7.5" fill="currentColor"/>
-              <line x1="314" y1="119" x2="314" y2="99" stroke="currentColor" stroke-width="1.6"/>
+            <!-- 4 Mid Tom — space between line2/line3, secondary -->
+            <g>
+              <rect x="288" y="114" width="34" height="18" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+              <ellipse cx="305" cy="123" rx="8" ry="6.5" fill="currentColor" opacity="0.55"/>
               <text x="305" y="228" text-anchor="middle" class="klabel">中音中鼓</text>
               <text x="305" y="243" text-anchor="middle" class="klabel-en">Mid Tom</text>
             </g>
 
-            <!-- 5 High Tom — line2, secondary -->
-            <g opacity="0.55">
-              <ellipse cx="375" cy="112" rx="9.5" ry="7.5" fill="currentColor"/>
-              <line x1="384" y1="108" x2="384" y2="88" stroke="currentColor" stroke-width="1.6"/>
+            <!-- 5 High Tom — space between line1/line2, secondary -->
+            <g>
+              <rect x="358" y="92" width="34" height="18" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+              <ellipse cx="375" cy="101" rx="8" ry="6.5" fill="currentColor" opacity="0.55"/>
               <text x="375" y="228" text-anchor="middle" class="klabel">高音中鼓</text>
               <text x="375" y="243" text-anchor="middle" class="klabel-en">High Tom</text>
             </g>
 
-            <!-- 6 Hi-Hat — space1, PRIMARY, X notehead -->
+            <!-- 6 Hi-Hat — space just above staff, PRIMARY, X notehead -->
             <g>
-              <line x1="439" y1="95" x2="451" y2="107" stroke="var(--brass-strong)" stroke-width="2.6"/>
-              <line x1="451" y1="95" x2="439" y2="107" stroke="var(--brass-strong)" stroke-width="2.6"/>
-              <line x1="451" y1="101" x2="451" y2="81" stroke="var(--brass-strong)" stroke-width="1.8"/>
+              <line x1="428" y1="68" x2="462" y2="68" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+              <rect x="428" y="70" width="34" height="18" rx="4" fill="var(--brass-strong)" fill-opacity="0.16" stroke="var(--brass-strong)" stroke-width="1.4"/>
+              <line x1="439" y1="73" x2="451" y2="85" stroke="var(--brass-strong)" stroke-width="2.4"/>
+              <line x1="451" y1="73" x2="439" y2="85" stroke="var(--brass-strong)" stroke-width="2.4"/>
               <text x="445" y="228" text-anchor="middle" class="klabel primary">腳踏鈸</text>
               <text x="445" y="243" text-anchor="middle" class="klabel-en primary">Hi-Hat</text>
             </g>
 
-            <!-- 7 Ride — line1, secondary, X notehead -->
-            <g opacity="0.55">
-              <line x1="509" y1="84" x2="521" y2="96" stroke="currentColor" stroke-width="2.2"/>
-              <line x1="521" y1="84" x2="509" y2="96" stroke="currentColor" stroke-width="2.2"/>
-              <line x1="521" y1="90" x2="521" y2="70" stroke="currentColor" stroke-width="1.6"/>
+            <!-- 7 Ride — second space above staff, secondary, X notehead -->
+            <g>
+              <line x1="498" y1="68" x2="532" y2="68" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <line x1="498" y1="46" x2="532" y2="46" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <rect x="498" y="48" width="34" height="18" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+              <line x1="509" y1="51" x2="521" y2="63" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+              <line x1="521" y1="51" x2="509" y2="63" stroke="currentColor" stroke-width="2" opacity="0.55"/>
               <text x="515" y="228" text-anchor="middle" class="klabel">節奏鈸</text>
               <text x="515" y="243" text-anchor="middle" class="klabel-en">Ride</text>
             </g>
 
-            <!-- 8 Crash — above staff ledger, secondary, X notehead -->
-            <g opacity="0.55">
-              <line x1="579" y1="62" x2="591" y2="74" stroke="currentColor" stroke-width="2.2"/>
-              <line x1="591" y1="62" x2="579" y2="74" stroke="currentColor" stroke-width="2.2"/>
-              <line x1="591" y1="68" x2="591" y2="48" stroke="currentColor" stroke-width="1.6"/>
+            <!-- 8 Crash — third space above staff, secondary, X notehead -->
+            <g>
+              <line x1="568" y1="68" x2="602" y2="68" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <line x1="568" y1="46" x2="602" y2="46" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <line x1="568" y1="24" x2="602" y2="24" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <rect x="568" y="26" width="34" height="18" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.2"/>
+              <line x1="579" y1="29" x2="591" y2="41" stroke="currentColor" stroke-width="2" opacity="0.55"/>
+              <line x1="591" y1="29" x2="579" y2="41" stroke="currentColor" stroke-width="2" opacity="0.55"/>
               <text x="585" y="228" text-anchor="middle" class="klabel">強音鈸</text>
               <text x="585" y="243" text-anchor="middle" class="klabel-en">Crash</text>
             </g>
 
-            <text x="46" y="270" class="diagram-label" font-size="12">位置愈低音愈大顆／音愈低（大鼓）；位置愈高愈接近鈸類（腳踏鈸・節奏鈸・強音鈸）。</text>
-            <text x="46" y="286" class="diagram-label" font-size="12"><tspan fill="var(--brass-strong)" font-weight="700">金色 3 個</tspan>＝今天要記住的位置，其餘為之後課程會用到的參考位置。</text>
+            <text x="46" y="270" class="diagram-label" font-size="12">格子位置愈低音色愈低沉（大鼓）；愈高愈接近鈸類（腳踏鈸・節奏鈸・強音鈸）。</text>
+            <text x="46" y="286" class="diagram-label" font-size="12"><tspan fill="var(--brass-strong)" font-weight="700">金色格子 3 個</tspan>＝今天要記住的位置，其餘為之後課程會用到的參考位置。</text>
           </svg>
-          <figcaption>這是標準鼓譜的位置對照：符頭在譜表上「愈下面」代表樂器愈低沉（大鼓在譜表下方），「愈上面」代表愈接近鈸類（腳踏鈸在譜表上方）。今天只需要記住金色標示的大鼓、小鼓、腳踏鈸三個位置。</figcaption>
+          <figcaption>每個音符都畫在兩條線之間的格子正中央，不會壓在線上，方便一眼看出屬於哪一格。格子愈靠下，樂器愈低沉（大鼓）；愈靠上愈接近鈸類（腳踏鈸在譜表上方）。今天只需要記住金色格子裡的大鼓、小鼓、腳踏鈸三個位置。</figcaption>
         </figure>
       </div>
 
