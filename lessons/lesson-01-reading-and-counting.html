@@ -204,6 +204,10 @@
   }
   .diagram-label{ font-size:12px; fill:currentColor; font-family:'Public Sans', sans-serif; }
   .diagram-num{ font-size:12px; font-weight:700; fill:var(--paper); font-family:'IBM Plex Mono', monospace; }
+  .klabel{ font-size:13px; font-weight:600; fill:currentColor; font-family:'Public Sans','Noto Sans TC',sans-serif; }
+  .klabel.primary{ fill:var(--brass-strong); }
+  .klabel-en{ font-size:11px; fill:var(--ink-soft); font-family:'IBM Plex Mono', monospace; }
+  .klabel-en.primary{ fill:var(--brass-strong); }
 
   /* legend under kit diagram */
   .legend-grid{
@@ -532,51 +536,88 @@
 
       <div class="panel figure-scroll">
         <figure>
-          <svg viewBox="0 0 560 220" role="img" aria-label="鼓譜位置對照圖：腳踏鈸標示在譜表上方以叉號表示，小鼓在譜表中線，大鼓在譜表下方，各自旁邊配有樂器小圖示" style="min-width:420px">
+          <svg viewBox="0 0 660 296" role="img" aria-label="標準鼓譜位置對照圖：由左到右依序為大鼓、落地鼓、小鼓、中音中鼓、高音中鼓、腳踏鈸、節奏鈸、強音鈸，音符在譜表上的位置隨音高由下往上排列，大鼓、小鼓、腳踏鈸以金色標示為今天的學習重點" style="min-width:560px">
             <!-- staff lines -->
             <g stroke="currentColor" stroke-width="1.2" opacity="0.7">
-              <line x1="70" y1="70" x2="330" y2="70"/>
-              <line x1="70" y1="98" x2="330" y2="98"/>
-              <line x1="70" y1="126" x2="330" y2="126"/>
-              <line x1="70" y1="154" x2="330" y2="154"/>
-              <line x1="70" y1="182" x2="330" y2="182"/>
+              <line x1="46" y1="90" x2="614" y2="90"/>
+              <line x1="46" y1="112" x2="614" y2="112"/>
+              <line x1="46" y1="134" x2="614" y2="134"/>
+              <line x1="46" y1="156" x2="614" y2="156"/>
+              <line x1="46" y1="178" x2="614" y2="178"/>
             </g>
 
-            <!-- Hi-Hat: above staff -->
+            <!-- 1 Kick — below staff, ledger, PRIMARY -->
             <g>
-              <line x1="184" y1="34" x2="204" y2="54" stroke="var(--brass-strong)" stroke-width="3.4"/>
-              <line x1="204" y1="34" x2="184" y2="54" stroke="var(--brass-strong)" stroke-width="3.4"/>
-              <line x1="222" y1="44" x2="250" y2="44" stroke="currentColor" stroke-width="1"/>
-              <!-- hi-hat icon -->
-              <ellipse cx="272" cy="44" rx="15" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              <ellipse cx="272" cy="50" rx="15" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              <text x="298" y="40" class="diagram-label" font-weight="700" fill="var(--brass-strong)" font-size="15">Hi-Hat</text>
-              <text x="298" y="57" class="diagram-label" font-size="12">腳踏鈸　✕ 符號</text>
+              <line x1="83" y1="200" x2="107" y2="200" stroke="var(--brass-strong)" stroke-width="1.4"/>
+              <ellipse cx="95" cy="200" rx="9.5" ry="7.5" fill="var(--brass-strong)"/>
+              <line x1="104" y1="196" x2="104" y2="176" stroke="var(--brass-strong)" stroke-width="1.8"/>
+              <text x="95" y="228" text-anchor="middle" class="klabel primary">大鼓</text>
+              <text x="95" y="243" text-anchor="middle" class="klabel-en primary">Kick</text>
             </g>
 
-            <!-- Snare: middle line -->
-            <g>
-              <ellipse cx="194" cy="126" rx="13" ry="10" fill="var(--brass-strong)"/>
-              <line x1="222" y1="126" x2="250" y2="126" stroke="currentColor" stroke-width="1"/>
-              <!-- snare icon -->
-              <ellipse cx="272" cy="126" rx="15" ry="9" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              <line x1="257" y1="126" x2="287" y2="126" stroke="currentColor" stroke-width="1"/>
-              <text x="298" y="122" class="diagram-label" font-weight="700" fill="var(--brass-strong)" font-size="15">Snare</text>
-              <text x="298" y="139" class="diagram-label" font-size="12">小鼓　● 符號</text>
+            <!-- 2 Floor Tom — line4, secondary -->
+            <g opacity="0.55">
+              <ellipse cx="165" cy="156" rx="9.5" ry="7.5" fill="currentColor"/>
+              <line x1="174" y1="152" x2="174" y2="132" stroke="currentColor" stroke-width="1.6"/>
+              <text x="165" y="228" text-anchor="middle" class="klabel">落地鼓</text>
+              <text x="165" y="243" text-anchor="middle" class="klabel-en">Floor Tom</text>
             </g>
 
-            <!-- Kick: below staff -->
+            <!-- 3 Snare — line3 (middle line), PRIMARY -->
             <g>
-              <line x1="178" y1="208" x2="210" y2="208" stroke="currentColor" stroke-width="1.2"/>
-              <ellipse cx="194" cy="208" rx="13" ry="10" fill="var(--brass-strong)"/>
-              <line x1="222" y1="208" x2="250" y2="208" stroke="currentColor" stroke-width="1"/>
-              <!-- kick icon -->
-              <ellipse cx="272" cy="208" rx="17" ry="15" fill="none" stroke="currentColor" stroke-width="1.6"/>
-              <text x="298" y="204" class="diagram-label" font-weight="700" fill="var(--brass-strong)" font-size="15">Kick</text>
-              <text x="298" y="221" class="diagram-label" font-size="12">大鼓　● 符號</text>
+              <ellipse cx="235" cy="134" rx="9.5" ry="7.5" fill="var(--brass-strong)"/>
+              <line x1="244" y1="130" x2="244" y2="110" stroke="var(--brass-strong)" stroke-width="1.8"/>
+              <text x="235" y="228" text-anchor="middle" class="klabel primary">小鼓</text>
+              <text x="235" y="243" text-anchor="middle" class="klabel-en primary">Snare</text>
             </g>
+
+            <!-- 4 Mid Tom — space2, secondary -->
+            <g opacity="0.55">
+              <ellipse cx="305" cy="123" rx="9.5" ry="7.5" fill="currentColor"/>
+              <line x1="314" y1="119" x2="314" y2="99" stroke="currentColor" stroke-width="1.6"/>
+              <text x="305" y="228" text-anchor="middle" class="klabel">中音中鼓</text>
+              <text x="305" y="243" text-anchor="middle" class="klabel-en">Mid Tom</text>
+            </g>
+
+            <!-- 5 High Tom — line2, secondary -->
+            <g opacity="0.55">
+              <ellipse cx="375" cy="112" rx="9.5" ry="7.5" fill="currentColor"/>
+              <line x1="384" y1="108" x2="384" y2="88" stroke="currentColor" stroke-width="1.6"/>
+              <text x="375" y="228" text-anchor="middle" class="klabel">高音中鼓</text>
+              <text x="375" y="243" text-anchor="middle" class="klabel-en">High Tom</text>
+            </g>
+
+            <!-- 6 Hi-Hat — space1, PRIMARY, X notehead -->
+            <g>
+              <line x1="439" y1="95" x2="451" y2="107" stroke="var(--brass-strong)" stroke-width="2.6"/>
+              <line x1="451" y1="95" x2="439" y2="107" stroke="var(--brass-strong)" stroke-width="2.6"/>
+              <line x1="451" y1="101" x2="451" y2="81" stroke="var(--brass-strong)" stroke-width="1.8"/>
+              <text x="445" y="228" text-anchor="middle" class="klabel primary">腳踏鈸</text>
+              <text x="445" y="243" text-anchor="middle" class="klabel-en primary">Hi-Hat</text>
+            </g>
+
+            <!-- 7 Ride — line1, secondary, X notehead -->
+            <g opacity="0.55">
+              <line x1="509" y1="84" x2="521" y2="96" stroke="currentColor" stroke-width="2.2"/>
+              <line x1="521" y1="84" x2="509" y2="96" stroke="currentColor" stroke-width="2.2"/>
+              <line x1="521" y1="90" x2="521" y2="70" stroke="currentColor" stroke-width="1.6"/>
+              <text x="515" y="228" text-anchor="middle" class="klabel">節奏鈸</text>
+              <text x="515" y="243" text-anchor="middle" class="klabel-en">Ride</text>
+            </g>
+
+            <!-- 8 Crash — above staff ledger, secondary, X notehead -->
+            <g opacity="0.55">
+              <line x1="579" y1="62" x2="591" y2="74" stroke="currentColor" stroke-width="2.2"/>
+              <line x1="591" y1="62" x2="579" y2="74" stroke="currentColor" stroke-width="2.2"/>
+              <line x1="591" y1="68" x2="591" y2="48" stroke="currentColor" stroke-width="1.6"/>
+              <text x="585" y="228" text-anchor="middle" class="klabel">強音鈸</text>
+              <text x="585" y="243" text-anchor="middle" class="klabel-en">Crash</text>
+            </g>
+
+            <text x="46" y="270" class="diagram-label" font-size="12">位置愈低音愈大顆／音愈低（大鼓）；位置愈高愈接近鈸類（腳踏鈸・節奏鈸・強音鈸）。</text>
+            <text x="46" y="286" class="diagram-label" font-size="12"><tspan fill="var(--brass-strong)" font-weight="700">金色 3 個</tspan>＝今天要記住的位置，其餘為之後課程會用到的參考位置。</text>
           </svg>
-          <figcaption>今天只認這三個位置：Hi-Hat 畫在譜表上方、打叉（✕）；Snare 畫在譜表正中間那條線；Kick 畫在譜表下方。之後才會加入強音鈸、中鼓、落地鼓等更多位置。</figcaption>
+          <figcaption>這是標準鼓譜的位置對照：符頭在譜表上「愈下面」代表樂器愈低沉（大鼓在譜表下方），「愈上面」代表愈接近鈸類（腳踏鈸在譜表上方）。今天只需要記住金色標示的大鼓、小鼓、腳踏鈸三個位置。</figcaption>
         </figure>
       </div>
 
